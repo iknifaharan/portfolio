@@ -1,0 +1,116 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #0F0D0E;
+    color: #FFFFFF;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Header Styling */
+header {
+    background-color: #0F0D0E;
+    height: 60px; /* Adjusted height */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding-left: 160px;
+    gap: 20px;
+}
+
+
+/* Header Styling */
+header {
+    background-color: #0F0D0E;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 0 160px;
+}
+
+/* Left and Right Sections in Header */
+.header-left {
+    display: flex;
+    gap: 20px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Header Buttons */
+.home-button, .case-studies-button, .email-button {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 2px solid #0F0D0E;
+    border-radius: 6px;
+    background-color: #0F0D0E;
+    transition: all 0.3s ease;
+}
+
+.home-button:hover, .case-studies-button:hover, .email-button:hover {
+    border-color: #FFFFFF;
+    color: #0F0D0E;
+    background-color: #FFFFFF;
+}
+
+.home-button.selected, .case-studies-button.selected {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    background-color: #0F0D0E;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.back-to-top {
+    text-decoration: none;
+    color: #CCCCCC;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.back-to-top:hover {
+    color: #FFFFFF;
+}
+/* Subpage Content Styling */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px); /* Ensures the content takes up the remaining screen space below the header */
+}
+
+.subpage-image-container {
+    width: calc(100% - 320px);
+    max-width: 1600px;
+    margin-top: 20px;
+}
+
+.subpage-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
