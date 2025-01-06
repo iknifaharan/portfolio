@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="home-button selected">Home</a>
+            <a href="#frame-section" class="case-studies-button">Case Studies</a>
+        </div>
+        <div class="header-right">
+            <a href="mailto:knifaharan@outlook.com" class="email-button">Email Me</a>
+        </div>
+    </header>
+
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Images 1 to 4 -->
+        <div class="image-container">
+            <img src="1.png" alt="Design Snapshot 1">
+        </div>
+        <div class="image-container">
+            <img src="2.png" alt="Design Snapshot 2">
+        </div>
+        <div class="image-container">
+            <img src="3.png" alt="Design Snapshot 3">
+        </div>
+        <div class="image-container">
+            <img src="4.png" alt="Design Snapshot 4">
+        </div>
+
+        <!-- Frame with Tooltip Images (5 & 6) -->
+        <div id="frame-section" class="image-frame">
+            <div class="image-tooltip-container">
+                <a href="subpage.html">
+                    <img src="5.png" alt="Case Study 5" class="hover-image" data-tooltip="Click to view case study">
+                </a>
+            </div>
+            <div class="image-tooltip-container">
+                <a href="qwqer.html">
+                    <img src="6.png" alt="Case Study 6" class="hover-image" data-tooltip="Click to view case study">
+                </a>
+            </div>
+        </div>
+
+        <!-- Tooltip -->
+        <div id="tooltip" class="tooltip"></div>
+
+        <!-- Image 7 -->
+        <div class="image-container">
+            <img src="7.png" alt="Design Snapshot 7">
+        </div>
+
+        <!-- Expandable Frame with 5 Columns -->
+        <div class="expandable-frame-wrapper">
+            <div class="expandable-frame">
+                <div class="expandable-column">
+                    <img src="g1.png" alt="Grid Image 1">
+                </div>
+                <div class="expandable-column">
+                    <img src="g2.png" alt="Grid Image 2">
+                </div>
+                <div class="expandable-column">
+                    <img src="g3.png" alt="Grid Image 3">
+                </div>
+                <div class="expandable-column">
+                    <img src="g4.png" alt="Grid Image 4">
+                </div>
+                <div class="expandable-column">
+                    <img src="g5.png" alt="Grid Image 5">
+                </div>
+            </div>
+        </div>
+
+        <!-- Next Set of Images -->
+        <div class="image-container">
+            <img src="8.png" alt="Design Snapshot 8">
+        </div>
+        <div class="image-container">
+            <img src="9.png" alt="Design Snapshot 9">
+        </div>
+        <div class="image-container">
+            <img src="10.png" alt="Design Snapshot 10">
+        </div>
+    </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <a href="#top" class="back-to-top">Back to Top</a>
+        </footer>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
