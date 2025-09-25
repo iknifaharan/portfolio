@@ -1,0 +1,243 @@
+/* ---------------------------------------------------
+   Base
+--------------------------------------------------- */
+
+/* Prevent mobile text autosizing from inflating line boxes */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #FFFFFF;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Example: load Open Sans predictably to reduce layout shifts.
+   Update the src URL(s) to match actual hosted font files. */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/open-sans.woff2') format('woff2');
+  font-display: swap; /* reduces FOIT/CLS */
+  /* Optional metric overrides if fallback mismatch causes shifts:
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 100%;
+  */
+}
+
+/* ---------------------------------------------------
+   Header
+--------------------------------------------------- */
+
+header {
+  background-color: #ffffff;
+  height: 60px;                 /* fixed header height */
+  display: flex;
+  align-items: center;          /* stable vertical centering */
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 0 160px;
+  overflow: hidden;             /* hides any accidental overflow */
+}
+
+/* Header groups: keep items on a single line to avoid height growth */
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;          /* prevent wrapping that increases header height */
+  min-width: 0;                 /* allows flex children to shrink if needed */
+}
+
+/* Header Buttons: fixed control height using inline-flex
+   - line-height: 1 avoids UA-dependent 'normal'
+   - white-space: nowrap avoids multi-line text */
+.home-button,
+.case-studies-button,
+.email-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;                 /* stable control height */
+  padding: 0 16px;              /* vertical padding accounted for by fixed height */
+  line-height: 1;               /* stable inline box metrics */
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid #0C0C0C;
+  border-radius: 6px;
+  background-color: #0C0C0C;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.home-button:hover,
+.case-studies-button:hover,
+.email-button:hover {
+  border-color: #0C0C0C;
+  color: #0C0C0C;
+  background-color: #FFFFFF;
+}
+
+.home-button.selected,
+.case-studies-button.selected {
+  border-color: #0C0C0C;
+  color: #FFFFFF;
+  background-color: #0F0D0E;
+}
+
+/* ---------------------------------------------------
+   Main / Footer
+--------------------------------------------------- */
+
+/* Content Styling */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Footer Styling */
+footer {
+  margin-top: 20px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.back-to-top {
+  text-decoration: none;
+  color: #CCCCCC;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-to-top:hover {
+  color: #FFFFFF;
+}
+
+/* ---------------------------------------------------
+   Images & Tooltip
+--------------------------------------------------- */
+
+.image-container {
+  width: calc(100% - 320px);
+  max-width: 1600px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Tooltip Frame Styling */
+.image-frame {
+  width: calc(100% - 320px);
+  max-width: 1600px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.image-tooltip-container {
+  position: relative;
+  width: 48%;
+}
+
+.image-tooltip-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+}
+
+/* Tooltip Styling */
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+  background-color: #0C0C0C;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+/* ---------------------------------------------------
+   Expandable Grid
+--------------------------------------------------- */
+
+/* Consolidated (deduplicated) wrapper rule */
+.expandable-frame-wrapper {
+  width: calc(100% - 320px);
+  max-width: 1600px;
+  margin-top: 20px;
+  overflow: hidden;
+  border: 2px solid #0C0C0C;
+  background-color: #0C0C0C;
+  height: 400px; /* Fixed height to prevent page jumps */
+}
+
+/* Expandable Frame Styling */
+.expandable-frame {
+  display: flex;
+  justify-content: space-between;
+  height: 100%; /* Matches the wrapper height */
+}
+
+.expandable-column {
+  flex: 1;
+  margin: 0; /* Removed spacing between columns */
+  transition: flex 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  outline: 2px solid #0C0C0C; /* Added outline between grid images */
+  border-radius: 0; /* Removed border-radius */
+}
+
+.expandable-column img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* Default: Crop the image */
+  object-position: left;  /* Show the left side of the image in default state */
+  border-radius: 0;       /* Removed border-radius for images */
+  transition: object-fit 0.3s ease, object-position 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover Effect */
+.expandable-column:hover img {
+  object-fit: contain;    /* On hover: Show the full image */
+  object-position: center;/* Center the image in hover state */
+  transform: scale(1.05); /* Slight zoom for better visibility */
+}
+
+.expandable-column:hover {
+  flex: 4; /* Expand hovered column */
+}
+
+.expandable-frame .expandable-column:not(:hover) {
+  flex: 1; /* Shrink other columns */
+}
